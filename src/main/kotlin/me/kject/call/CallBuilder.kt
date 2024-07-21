@@ -17,6 +17,11 @@ interface CallBuilder<T> {
     val function: KFunction<T>
 
     /**
+     * The parameters available for this function.
+     */
+    val parameters: List<KParameter>
+
+    /**
      * The current value of the instance parameter.
      *
      * @throws NoInstanceParameterException If the function doesn't have an instance parameter.
@@ -52,12 +57,12 @@ interface CallBuilder<T> {
     operator fun set(name: String, value: Any?)
 
     /**
-     * Gets the [value] for the given [parameter].
+     * Gets the value for the given [parameter].
      */
     operator fun get(parameter: KParameter): Any?
 
     /**
-     * Gets the [value] for a parameter by its [name].
+     * Gets the value for a parameter by its [name].
      *
      * @throws UnknownParameterException If the parameter does not exist.
      */
